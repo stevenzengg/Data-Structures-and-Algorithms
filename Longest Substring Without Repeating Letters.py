@@ -1,7 +1,7 @@
 from typing import List
 
 class Solution:
-    def lengthOfLongestSubstring(s: str) -> int:
+    def lengthOfLongestSubstring(self, s: str) -> int:
         elementIndex = {}
 
         left = right = ans = 0
