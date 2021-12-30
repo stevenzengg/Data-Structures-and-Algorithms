@@ -8,18 +8,16 @@ class Solution:
 
         lastSafeElement = len(nums)-1
 
-        for i in range(reversed(len(nums))):
-            if lastSafeElement > i + nums[i]:
-                return False
-            
-            lastSafeElement = i
+        for i in reversed(range(len(nums))):
+            if lastSafeElement < i + nums[i]:
+                lastSafeElement = i
         
-        return True
+        return lastSafeElement == 0
 
 
 if __name__ == '__main__':
     a = Solution()
-    b = [1,2,6,2,2,6,0,1]
+    b = [10,0,0,0,0,0,0,0,1]
     print(a.canJump(b))
 
 
