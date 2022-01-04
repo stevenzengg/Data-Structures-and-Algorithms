@@ -10,14 +10,14 @@ class Solution:
                 unicodeRep[ord(j) - ord('a')] += 1
             
             tupleUnicode = tuple(unicodeRep)
-            tupleUnicode.append(i)
+            anagrams[tupleUnicode].append(i)
         
         return list(anagrams.values())
 
 
 if __name__ == '__main__':
     a = Solution()
-    b = ["hell", "lehj", "lehh", "hell", "lehh"]
+    b = ["hell", "lehj", "lehh", "hell", "lehh", "lleh"]
     print(a.groupAnagrams(b))
 
 
