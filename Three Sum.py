@@ -1,32 +1,36 @@
 from typing import List
 
 class Solution:
-    def threeSum(self, nums: List[int], target: int) -> List[List[int]]:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
         ans = []
-        if len(nums) < 3:
-            return None
-
-        def twoSum(self, nums: List[int], target: int) -> None:
-            if len(nums) < 2:
-                return
-
-            diffs = {}
-
-            for i in nums:
-                if i in diffs:
-                    ans.append([v, diffs[i], i])
-                else:
-                    diffs[target-i] = i
-            
-
-        for i, v in enumerate(set(nums)):
-            twoSum(nums[i+1:], target - v)
-
+        nums.sort()
+        for i in range(len(nums) - 2):
+            if nums[i] > 0:
+                break
+            if i == 0 or nums[i] != nums[i-1]:
+                self.twoSum(nums, ans, i+1)
+        
         return ans
     
-
-
+    
+    def twoSum(self, nums: List[int], ans: List[List[int]], i: int) -> None:
+        target = -nums[i-1]
+        seen = {} # third value: second value
+        while i < len(nums):
+            if nums[i] in seen:
+                ans.append([-target, nums[i], seen[nums[i]]])
+                while i < len(nums) - 1 and nums[i] == nums[i+1]:
+                    i +=1
             
+            seen[target - nums[i]] = nums[i]
+            i += 1
+            
+            
+            
+            
+        
+                
+               
 
 
 

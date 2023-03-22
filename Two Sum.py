@@ -2,18 +2,13 @@ from typing import List
 
 class Solution:
     def TwoSum(nums: List[int], target: int) -> List[int]:
-        elementIndex = {}
-
-        if not nums:
-            return None
-
-        for i, v in enumerate(nums):
-            complement = target - i
-            if complement in elementIndex:
-                return [elementIndex[complement], i]
-            elementIndex[v] = i
+        seen = {} # value:index
+        for i,v in enumerate(nums):
+            if target - v in seen:
+                return [seen[target-v], i]
+            seen[v] = i
         
-        return None
+        return []
 
 
 

@@ -8,19 +8,19 @@ class ListNode:
 
 class Solution:
     def addLinkedList(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        ans = ListNode(-1)
-        iterator = ans
         carry = 0
+        l3 = ans = ListNode()
+        while l1 or l2 or carry:
+            l3.next = ListNode()
+            l3 = l3.next
 
-        while l1 or l2:
             val1 = l1.val if l1 else 0
             val2 = l2.val if l2 else 0
-
-            carry, r = divmod(val1 + val2 + carry, 10)
-            iterator.next = ListNode(r)
-            iterator = iterator.next
+            carry, l3.val = divmod(val1+val2+carry, 10)
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
         
-        return ans
+        return ans.next
 
 
 
