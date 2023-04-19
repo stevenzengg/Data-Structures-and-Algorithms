@@ -3,25 +3,18 @@ from collections import defaultdict
 
 class Solution:
     def mergeIntervals(self, intervals: List[List[int]]) -> List[List[int]]:
-
-        if not (all(len(i) == 2 and (all(isinstance(j, int) for j in i)) for i in intervals) or intervals):
-            return intervals
-
-        ans, curr = [], intervals[0]
-
+        intervals.sort()
+        ans = [intervals[0]]
         for i in range(1, len(intervals)):
-            currEnd = intervals[i][1]
-            currStart = intervals[i][0]
-            lastEnd = intervals[i-1][1]
-            if currStart < lastEnd:
-                curr[1] = max(curr[1], currEnd)
+            v = intervals[i]
+            last = ans[-1]
+            if v[0] <= last[1]:
+                ans[-1][1] = max(last[-1], v[1])
             else:
-                ans.append(curr)
-                curr = intervals[i]
+                ans.append(v)
         
-        ans.append(curr)
-
         return ans
+            
             
 
 
