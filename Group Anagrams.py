@@ -11,6 +11,7 @@ class Solution:
             
             tupleUnicode = tuple(unicodeRep)
             anagrams[tupleUnicode].append(i)
+            
         
         return list(anagrams.values())
 
