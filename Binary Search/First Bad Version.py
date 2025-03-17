@@ -15,7 +15,7 @@ class Solution:
                 left = mid + 1
         return left
 
-        
+# Note here we return left, because we want the first bad version, and left will be the first bad version after the loop ends.        
 
 
 if __name__ == '__main__':
