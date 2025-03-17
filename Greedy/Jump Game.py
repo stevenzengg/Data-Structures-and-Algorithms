@@ -22,5 +22,3 @@ if __name__ == '__main__':
 
 
 # Easy
-# Hashmap
-# Two Pointer (sort and low high)

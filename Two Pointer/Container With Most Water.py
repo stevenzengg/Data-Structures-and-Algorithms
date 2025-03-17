@@ -25,6 +25,4 @@ if __name__ == '__main__':
     print(a.maxArea(b))
 
 
-# Easy
-# Hashmap
 # Two Pointer (sort and low high)

@@ -24,8 +24,3 @@ if __name__ == '__main__':
     a = Solution()
     b = [[1,3],[2,6],[8,10],[15,18]]
     print(a.mergeIntervals(b))
-
-
-# Easy
-# Hashmap
-# Two Pointer (sort and low high)

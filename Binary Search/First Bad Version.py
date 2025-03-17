@@ -4,18 +4,17 @@ class Solution:
             if n >= 4:
                 return True
             return False
-
         left, right = 1, n
+
         while left <= right:
-            guess = (right + left) // 2
-            version = isBadVersion(guess)
-            beforeVersion = isBadVersion(guess-1)
-            if version == True and beforeVersion == False:
-                return guess
-            elif version == True:
-                right = guess - 1
+            mid = (left + right) // 2
+            version = isBadVersion(mid)
+            if version:
+                right = mid - 1
             else:
-                left = guess + 1
+                left = mid + 1
+        return left
+
         
 
 
