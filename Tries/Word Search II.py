@@ -11,18 +11,19 @@ class Solution:
                 node = node.children[char]
             node.word = word
 
-        self.ans = set()
+        self.ans = []
         self.directions = [(0, 1), (0, -1), (-1, 0), (1, 0)]
         for i in range(len(board)):
             for j in range(len(board[0])):
                 if board[i][j] in head.children:
                     self.dfs(i, j, set([(i, j)]), board, head.children[board[i][j]], head)
         
-        return list(self.ans)
+        return self.ans
 
     def dfs(self, i, j, visited, board, node, parent):
         if node.word:
-            self.ans.add(node.word)
+            self.ans.append(node.word)
+            node.word = ""
         
         for a, b in self.directions:
             x, y = a + i, b + j

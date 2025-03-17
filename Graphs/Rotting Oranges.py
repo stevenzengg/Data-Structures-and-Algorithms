@@ -3,53 +3,38 @@ from collections import deque
 
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
-        
-        def bfsValidation(node: tuple) -> bool:
-            if 0 <= node[0] < len(grid) and 0 <= node[1] < len(grid[0]) and node not in seen and grid[node[0]][node[1]] != 0:
-                return True
-            return False
+        # initial pass, which oranges are rotten, which oranges arent
+        rotten = deque()
+        fresh = set()
+        minutes = 0
+        directions = [(0, 1), (1, 0), (-1, 0), (0, -1)]
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1:
+                    fresh.add((i, j))
+                elif grid[i][j] == 2:
+                    rotten.append((i, j))
         
 
-        if not grid or len(grid[0]) == 0 or not all([len(i) == len(grid[0]) for i in grid]):
-            return -1
-        
-        directions = [(1, 0), (0, 1), (0, -1), (-1, 0)]
-        seen = set()
-        oranges = set()
-        queue = deque()
-        
-        for i, v in enumerate(grid):
-            for i2, v2 in enumerate(v):
-                if not isinstance(v2, int):
-                    return -1
-                if v2 == 1:
-                    oranges.add((i, i2))
-                elif v2 == 2:
-                    oranges.add((i, i2))
-                    queue.append((i, i2))
-                    
-        if not queue:
-            if not oranges:
-                return 0
-            return -1
-        
-        score = -2
-        while queue:
-            score += 1
-            length = len(queue)
+        while fresh:
+            length = len(rotten)
+            if length == 0:
+                return -1 
             for _ in range(length):
-                node = queue.popleft()
-                if bfsValidation(node):
-                    seen.add(node)
-                    for a,b in directions:
-                        queue.append((node[0] + a, node[1] + b))
+                i, j = rotten.popleft()
+                for a, b in directions:
+                    x, y = a + i, b + j
+                    if (x, y) in fresh:
+                        rotten.append((x, y))
+                        fresh.remove((x, y))
+
+            minutes += 1
         
-        if seen == oranges:
-            return score
-        return -1
-        
-            
-        
+        return minutes
+
+
+        # bfs per minute passing, stop when all oranges are rotten / no oranges are fresh
+
 
 if __name__ == '__main__':
     a = Solution()
