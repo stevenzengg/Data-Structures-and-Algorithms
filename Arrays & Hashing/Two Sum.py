@@ -20,6 +20,7 @@ if __name__ == '__main__':
     print(a.TwoSum(b,c))
 
 
-# Easy
-# Hashmap
-# Two Pointer (sort and low high)
+# Time Complexity: O(n)
+# Space Complexity: O(n)
+# The time complexity is O(n) because we loop through the list once
+# The space complexity is O(n) because we store the output in a dictionary of size n

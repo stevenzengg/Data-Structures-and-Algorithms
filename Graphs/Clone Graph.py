@@ -25,3 +25,5 @@ class Solution:
             hmap[node].neighbors.append(hmap[neighbor])
         
 
+# O(n + m) where n is the number of nodes and m is the number of edges
+# O(n) space complexity

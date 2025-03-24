@@ -20,3 +20,7 @@ class Solution:
                 if node.right:
                     queue.append(node.right)
         return ans
+    
+
+
+# O(n) time complexity, O(n) space complexity

@@ -3,7 +3,7 @@ class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         if len(nums2) < len(nums1):
             nums2, nums1 = nums1, nums2
-        # nums1 is smaller, nums2 is bigger
+        # make nums1 the smaller one, nums2 the bigger one
         total = len(nums1) + len(nums2)
         half = total // 2
         l, r = 0, len(nums1) - 1
@@ -27,3 +27,8 @@ class Solution:
                 r = i - 1
             else:
                 l = i + 1
+
+# Time complexity: O(log(min(n, m))), Space complexity: O(1)
+# We only perform binary search on the smaller one.
+
+# I also don't really understand this problem.

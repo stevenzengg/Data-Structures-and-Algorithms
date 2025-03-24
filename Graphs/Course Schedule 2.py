@@ -30,3 +30,6 @@ class Solution:
         
 
     # idea here is to do post order, and then reverse the traversal order
+
+# O(V + E) for DFS traversal
+# O(V + E) for storing the graph

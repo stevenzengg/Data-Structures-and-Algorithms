@@ -8,3 +8,6 @@ class Solution:
             hmap.add(i)
         
         return False
+    
+    # Time complexity: O(n), Space complexity: O(n)
+    # Runs through the list once (O(n)) and stores each element in a set (O(1)).

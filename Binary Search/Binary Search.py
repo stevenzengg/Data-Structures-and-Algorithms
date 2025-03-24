@@ -15,6 +15,9 @@ class Solution:
             
         return -1
 
+# Time complexity: O(log(n)), Space complexity: O(1)
+# The time complexity is O(log(n)) because we are cutting the list 
+# in half each time
 
 
 if __name__ == '__main__':

@@ -21,6 +21,5 @@ if __name__ == '__main__':
     print(a.groupAnagrams(b))
 
 
-# Easy
-# Hashmap
-# Two Pointer (sort and low high)
+# Time complexity: O(n * m), Space complexity: O(n * m)
+# n is the number of strings and m is the length of the longest string

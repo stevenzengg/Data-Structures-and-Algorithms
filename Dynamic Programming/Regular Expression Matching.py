@@ -15,3 +15,19 @@ class Solution:
         if j + 1 < len(p) and p[j + 1] == "*":
             return self.recurse(s, p, i, j + 2, memo) or (firstMatch and self.recurse(s, p, i + 1, j, memo))
         return firstMatch and self.recurse(s, p, i + 1, j + 1, memo)
+    
+
+# There are s * p subproblems where s is the length of the string s
+# and p is the length of the string p. We do O(1) work per subproblem.
+# Therefore,
+# Time complexity: O(s*p), Space complexity: O(s*p)
+
+
+
+# Recurrence time! The recurrence relationship here is:
+# T(i, j) = T(i, j + 2) + T(i + 1, j) if p[j + 1] == "*"
+# T(i, j) = T(i + 1, j + 1) if p[j + 1] != "*"
+# Let's break both down. The first one can be simplified to
+# T(i, j) = 2T(i, j + 2) = 2^(i + j). The second one can be simplified to
+# T(i, j) = T(i + 1, j + 1) = max(i, j). Therefore the time complexity
+# is dominated by the first case, which is O(2^(i + j)).

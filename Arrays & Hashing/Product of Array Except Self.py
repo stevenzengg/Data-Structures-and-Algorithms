@@ -13,3 +13,7 @@ class Solution:
             product = product*nums[i]
 
         return ans
+    
+    # Time complexity: O(n), Space complexity: O(n)
+    # The time complexity is O(n) because we loop through the list twice
+    # The space complexity is O(n) because we store the output in a list of size n

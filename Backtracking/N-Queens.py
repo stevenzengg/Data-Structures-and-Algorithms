@@ -42,3 +42,17 @@ if __name__ == '__main__':
     a = Solution()
     b = 4
     a.solveNQueens(b)
+
+
+# Time complexity: O(n!n^2), Space complexity: O(n!n^2)
+# T(n) = nT(n-1) + O(n^2)* S(n), where S(n) is number of solutions
+# S(n) is bounded by n! and O(n^2) is the time complexity of copying the board
+# T = n! + O(n!n^2)
+
+# Space complexity is merely the space taken up by the output, 
+# which is O(n!n^2) because there are n! solutions and each 
+# solution is n^2
+
+# You would think here that nT(n-1) = n^n, but actually n shrinks by 1
+# every recurrence. Therefore a constant like 2 is more powerful than
+# n in the recurrence, and nT(n-1) = n!

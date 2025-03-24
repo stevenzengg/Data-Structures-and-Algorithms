@@ -26,3 +26,6 @@ if __name__ == '__main__':
     a = Solution()
     b = [[1,2],[2,3],[5],[0],[5],[],[]]
     print(a.eventualSafeNodes(b))
+
+
+# O(V + E) for topological sort
